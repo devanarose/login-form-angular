@@ -1,25 +1,18 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
-import { AppComponent } from './app/app.component'; 
+import { AppComponent } from './app/app.component'; // Ensure correct file path
+import { LoginComponent } from './app/login/login.component'; // Ensure correct file path
+import { DashboardComponent } from './app/dashboard/dashboard.component'; // Ensure correct file path
 
-import { LoginComponent } from './app/login/login.component';
-import { DashboardComponent } from './app/dashboard/dashboard.component';
-import { HomeComponent } from './app/home/home.component';
-import { AboutComponent } from './app/about/about.component';
-
+// Define application routes
 const routes = [
-  { path: '', component: LoginComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'about', component: AboutComponent },
-    ],
-  },
-  { path: '**', redirectTo: '' },
+  { path: '', component: LoginComponent }, // Default route
+  { path: 'dashboard', component: DashboardComponent }, // Dashboard route
 ];
 
+// Bootstrap the application
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(routes), // Provide routes
+  ],
 }).catch((err) => console.error(err));

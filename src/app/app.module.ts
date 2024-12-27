@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router'; // Import routing utilities
-import { AppComponent } from './app.component';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, Routes } from '@angular/router'; // Import provideRouter
+import { AppComponent } from './app.component'; // Standalone component
 import { LoginComponent } from './login/login.component'; // Standalone component
 import { DashboardComponent } from './dashboard/dashboard.component'; // Standalone component
 import { HomeComponent } from './home/home.component'; // Standalone component
@@ -21,11 +20,9 @@ const routes: Routes = [
   { path: '**', redirectTo: '' }, // Wildcard route (redirect to login)
 ];
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes), // Configure routing
+// Bootstrap the application with standalone components
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes), // Correct way to provide routing for standalone components
   ],
-  bootstrap: [AppComponent], // Bootstrap the root component
-})
-export class AppModule {}
+}).catch((err) => console.error(err));
