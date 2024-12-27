@@ -2,17 +2,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';  // Import standalone LoginComponent
+import { LoginComponent } from './login/login.component'; // Import the standalone LoginComponent
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
-    LoginComponent  // Import the standalone LoginComponent
+    LoginComponent, // Import LoginComponent directly
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

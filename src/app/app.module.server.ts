@@ -1,14 +1,14 @@
 // src/app/app.module.server.ts
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';  // Import the standalone LoginComponent
 
 @NgModule({
   imports: [
-    AppModule,
-    ServerModule // Ensure ServerModule is imported
+    ServerModule,
+    LoginComponent  // Import standalone component here, not declare
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]  // Bootstrap the AppComponent for SSR
 })
 export class AppServerModule {}
