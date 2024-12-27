@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<nav class="navbar">
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <li><button (click)="logout()">Logout</button></li>
+    </ul>
+  </nav>
+  
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  

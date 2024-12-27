@@ -1,10 +1,20 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>', // Allows route content to be displayed
   standalone: true,
-  imports: [RouterModule], // Required for routing
+  imports: [RouterModule],
+  template: `
+    <h1>Welcome to the App</h1>
+    <router-outlet></router-outlet>
+  `,
+  styles: [`
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+  `],
 })
 export class AppComponent {}
